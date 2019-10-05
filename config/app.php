@@ -1,11 +1,5 @@
 <?php
 
-use Bootstrapper\Facades\Alert;
-use Bootstrapper\Facades\Button;
-use Bootstrapper\Facades\Icon;
-use Kris\LaravelFormBuilder\Facades\FormBuilder;
-use Kris\LaravelFormBuilder\FormBuilderServiceProvider;
-
 return [
 
     /*
@@ -174,16 +168,17 @@ return [
 
         Bootstrapper\BootstrapperL5ServiceProvider::class,
         Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
-
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        AllBlacks\Providers\AppServiceProvider::class,
+        AllBlacks\Providers\AuthServiceProvider::class,
+        // AllBlacks\Providers\BroadcastServiceProvider::class,
+        AllBlacks\Providers\EventServiceProvider::class,
+        AllBlacks\Providers\RouteServiceProvider::class,
+        AllBlacks\Providers\RepositoryServiceProvider::class,
 
     ],
 
