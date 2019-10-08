@@ -165,10 +165,8 @@ return [
         /*
          * Package Service Providers...
          */
-
-        Bootstrapper\BootstrapperL5ServiceProvider::class,
-        Kris\LaravelFormBuilder\FormBuilderServiceProvider::class,
         Prettus\Repository\Providers\RepositoryServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -230,10 +228,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'FormBuilder' => Kris\LaravelFormBuilder\Facades\FormBuilder::class,
-        'Icon' => Bootstrapper\Facades\Icon::class,
-        'Alert' => Bootstrapper\Facades\Alert::class,
-        'Button' => Bootstrapper\Facades\Button::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class
     ],
 
 ];

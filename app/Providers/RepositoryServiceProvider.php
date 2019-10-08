@@ -24,6 +24,7 @@ class RepositoryServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->bind(\AllBlacks\Repositories\UserRepository::class, \AllBlacks\Repositories\UserRepositoryEloquent::class);
+        $this->app->bind(\AllBlacks\Repositories\ClientRepository::class, \AllBlacks\Repositories\ClientRepositoryEloquent::class);
         //:end-bindings:
     }
 }

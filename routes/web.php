@@ -15,6 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Route::group([
+    'prefix' => 'admin',
+    'as' => 'admin.'], function() {
+
+    Auth::routes();
+
+    Route::resource('clients', 'Admin\ClientController', ['except' => 'show']);
+    Route::get('import', 'Admin\ClientController@imports')->name('admin.clients.imports');
+
+});
+
+
+
+
