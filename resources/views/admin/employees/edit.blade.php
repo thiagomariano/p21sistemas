@@ -3,16 +3,16 @@
 @section('content')
     <div class="box">
         <div class="box-header">
-            <h3 class="box-title">Editar Cliente</h3>
+            <h3 class="box-title">Editar Funcionário</h3>
         </div>
         <div class="box box-info">
 
             <div class="box-body">
-                {!! Form::model($client, [
-                    'route' => ['admin.clients.update', 'client' => $client->id],
+                {!! Form::model($employess, [
+                    'route' => ['admin.employees.update', 'employees' => $employess->id],
                     'method' => 'PUT'])
                 !!}
-                @include('admin.clients._form')
+                @include('admin.employees._form')
 
                 {!! Form::submit('Salvar', ['class' => 'btn btn-success']); !!}
                 {!! Form::submit('Cancelar', ['class' => 'btn btn-danger']); !!}

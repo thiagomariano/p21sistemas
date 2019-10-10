@@ -1,5 +1,8 @@
 @extends('adminlte::page')
 
+@section('content-header')
+@endsection
+
 @section('content')
     <div class="box">
         <div class="box-header">
@@ -10,8 +13,9 @@
                     <button href="" class="btn btn-success"> Adicionar novo cliente</button>
                 </a>
 
-
+                <a href="{{ route('admin.clients.imports') }}">
                     <button href="" class="btn btn-warning"> Importar clientes</button>
+                </a>
             </div>
 
         </div>
@@ -41,8 +45,12 @@
                                             <td class="col-md-1">{{$data->telephone}}</td>
                                             <td class="col-md-1">{{$data->active}}</td>
                                             <td class="col-md-2 text-center">
-                                                <a href="{!! route('admin.clients.edit',['client' => $data->id]) !!}">editar</a>
-                                                <a href="{!! route('admin.clients.destroy',['client' => $data->id]) !!}">excluir</a>
+                                                <a href="{!! route('admin.clients.edit',['client' => $data->id]) !!}">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a href="{!! route('admin.clients.destroy',['client' => $data->id]) !!}">
+                                                    <i class="fas fa-trash-alt fa-2x"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach

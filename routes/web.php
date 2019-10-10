@@ -18,17 +18,22 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+Auth::routes();
 
 Route::group([
     'prefix' => 'admin',
-    'as' => 'admin.'], function() {
-
-    Auth::routes();
-
+    'as' => 'admin.'], function () {
     Route::resource('clients', 'Admin\ClientController', ['except' => 'show']);
-    Route::get('import', 'Admin\ClientController@imports')->name('admin.clients.imports');
+    Route::get('sendMailClient/{id}', 'Admin\ClientController@sendMailClient')->name('clients.sendMailClient');
 
+    Route::get('clients/import', 'Admin\ClientController@import')->name('clients.imports');
+    Route::post('clients/import-file', 'Admin\ClientController@importFile')->name('clients.imports.file');
+
+    Route::resource('emails', 'Admin\EmailSentController', ['except' => ['show']]);
+    Route::get('emails/send/{id}', 'Admin\EmailSentController@resendMail')->name('emails.send');
+
+    Route::resource('employees', 'Admin\EmployeesController', ['except' => ['show','edit']]);
+    Route::get('employees/edit', 'Admin\EmployeesController@edit')->name('emails.edit');
 });
 
 

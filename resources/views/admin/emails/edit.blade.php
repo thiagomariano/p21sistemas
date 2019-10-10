@@ -8,11 +8,11 @@
         <div class="box box-info">
 
             <div class="box-body">
-                {!! Form::model($client, [
-                    'route' => ['admin.clients.update', 'client' => $client->id],
+                {!! Form::model($email, [
+                    'route' => ['admin.emails.update', 'email' => $email->id],
                     'method' => 'PUT'])
                 !!}
-                @include('admin.clients._form')
+                @include('admin.emails._form')
 
                 {!! Form::submit('Salvar', ['class' => 'btn btn-success']); !!}
                 {!! Form::submit('Cancelar', ['class' => 'btn btn-danger']); !!}

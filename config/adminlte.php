@@ -141,8 +141,14 @@ return [
         ],
         [
             'text' => 'funcionários',
-            'url'  => 'admin/employee',
+            'url'  => 'admin/employees',
             'icon' => 'fas fa-fw fa-user',
+        ],
+        ['header' => 'Meus dados'],
+        [
+            'text' => 'Alterar informações',
+            'url'  => 'admin/employees/edit',
+            'icon' => 'fas fa-fw fa-edit',
         ],
     ],
 

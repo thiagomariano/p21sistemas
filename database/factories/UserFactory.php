@@ -1,7 +1,8 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-use AllBlacks\User;
+
+use AllBlacks\Models\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 

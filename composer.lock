@@ -4,8 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f13a5bfb9f6613c01bdd3b1525b9de6e",
+    "content-hash": "f9fdb48454a009f7323b098f36cf643b",
     "packages": [
+        {
+            "name": "caouecs/laravel-lang",
+            "version": "4.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caouecs/Laravel-lang.git",
+                "reference": "07e56beaceecd9da61a2c044be3dee7649f109e0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/07e56beaceecd9da61a2c044be3dee7649f109e0",
+                "reference": "07e56beaceecd9da61a2c044be3dee7649f109e0",
+                "shasum": ""
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.10"
+            },
+            "suggest": {
+                "ablunier/laravel-lang-installer": "Command for easily add languages to a Laravel project",
+                "andrey-helldar/laravel-lang-publisher": "Easy installation and update of translation files for your project",
+                "arcanedev/laravel-lang": "Translations manager and checker for Laravel 5",
+                "overtrue/laravel-lang": "Command to add languages in your project"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "caouecs",
+                    "email": "caouecs@caouecs.net"
+                }
+            ],
+            "description": "Languages for Laravel",
+            "keywords": [
+                "lang",
+                "languages",
+                "laravel",
+                "lpm"
+            ],
+            "time": "2019-10-07T17:29:59+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -520,82 +563,6 @@
                 "laravel"
             ],
             "time": "2019-09-29T18:34:01+00:00"
-        },
-        {
-            "name": "kris/laravel-form-builder",
-            "version": "1.21.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kristijanhusak/laravel-form-builder.git",
-                "reference": "1e7d14e53f88c3e7fb55e15feced89c7ce6ca326"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/1e7d14e53f88c3e7fb55e15feced89c7ce6ca326",
-                "reference": "1e7d14e53f88c3e7fb55e15feced89c7ce6ca326",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "5.*@dev|^6.0",
-                "illuminate/validation": "5.*@dev|^6.0",
-                "laravelcollective/html": "5.*|^6.0",
-                "php": ">=5.6.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "~3.4",
-                "phpunit/phpunit": "~5.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.16.x-dev"
-                },
-                "laravel": {
-                    "providers": [
-                        "Kris\\LaravelFormBuilder\\FormBuilderServiceProvider"
-                    ],
-                    "aliases": {
-                        "FormBuilder": "Kris\\LaravelFormBuilder\\Facades\\FormBuilder"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Kris\\LaravelFormBuilder": "src/"
-                },
-                "classmap": [
-                    "tests/FormBuilderTestCase.php"
-                ],
-                "files": [
-                    "src/helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kristijan Husak",
-                    "email": "husakkristijan@gmail.com"
-                },
-                {
-                    "name": "Mike Erickson",
-                    "email": "codedungeon@gmail.com"
-                },
-                {
-                    "name": "Mike Erickson",
-                    "email": "mike.erickson@codedungeon.io"
-                }
-            ],
-            "description": "Laravel form builder - symfony like",
-            "keywords": [
-                "builder",
-                "form",
-                "laravel",
-                "symfony"
-            ],
-            "time": "2019-09-04T04:49:11+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1261,73 +1228,6 @@
                 "random"
             ],
             "time": "2018-07-02T15:55:56+00:00"
-        },
-        {
-            "name": "patricktalmadge/bootstrapper",
-            "version": "5.11.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/patricktalmadge/bootstrapper.git",
-                "reference": "899f572143f483879bb75b36f17445d75f6262b8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/patricktalmadge/bootstrapper/zipball/899f572143f483879bb75b36f17445d75f6262b8",
-                "reference": "899f572143f483879bb75b36f17445d75f6262b8",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/config": "~5",
-                "illuminate/routing": "~5",
-                "illuminate/support": "~5",
-                "laravelcollective/html": "^5.4.2",
-                "php": ">=5.6.0",
-                "twbs/bootstrap": "~3"
-            },
-            "require-dev": {
-                "akeneo/phpspec-skip-example-extension": "~1.1",
-                "mockery/mockery": "~0.9",
-                "phpspec/phpspec": "~2",
-                "squizlabs/php_codesniffer": "~2.3"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Bootstrapper\\BootstrapperL5ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Bootstrapper\\": "src\\Bootstrapper",
-                    "DummyClasses\\": "tests\\DummyClasses"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Maxime Fabre",
-                    "email": "ehtnam6@gmail.com"
-                },
-                {
-                    "name": "Patrick Talmadge",
-                    "email": "ptalmadge@gmail.com"
-                },
-                {
-                    "name": "Patrick Rose",
-                    "email": "pjr0911025@gmail.com"
-                }
-            ],
-            "description": "Twitter Bootstrap markup generator",
-            "keywords": [
-                "bootstrap",
-                "laravel"
-            ],
-            "time": "2018-07-15T21:56:50+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -3207,57 +3107,6 @@
             "time": "2017-11-27T11:13:29+00:00"
         },
         {
-            "name": "twbs/bootstrap",
-            "version": "v3.4.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/68b0d231a13201eb14acd3dc84e51543d16e5f7e",
-                "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e",
-                "shasum": ""
-            },
-            "replace": {
-                "twitter/bootstrap": "self.version"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.4.x-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jacob Thornton",
-                    "email": "jacobthornton@gmail.com"
-                },
-                {
-                    "name": "Mark Otto",
-                    "email": "markdotto@gmail.com"
-                }
-            ],
-            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-            "homepage": "https://getbootstrap.com/",
-            "keywords": [
-                "JS",
-                "css",
-                "framework",
-                "front-end",
-                "less",
-                "mobile-first",
-                "responsive",
-                "web"
-            ],
-            "time": "2019-02-13T15:55:38+00:00"
-        },
-        {
             "name": "vlucas/phpdotenv",
             "version": "v3.6.0",
             "source": {
@@ -3701,6 +3550,82 @@
             "time": "2016-01-20T08:20:44+00:00"
         },
         {
+            "name": "kris/laravel-form-builder",
+            "version": "1.21.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kristijanhusak/laravel-form-builder.git",
+                "reference": "1e7d14e53f88c3e7fb55e15feced89c7ce6ca326"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kristijanhusak/laravel-form-builder/zipball/1e7d14e53f88c3e7fb55e15feced89c7ce6ca326",
+                "reference": "1e7d14e53f88c3e7fb55e15feced89c7ce6ca326",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.*@dev|^6.0",
+                "illuminate/validation": "5.*@dev|^6.0",
+                "laravelcollective/html": "5.*|^6.0",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.4",
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.16.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Kris\\LaravelFormBuilder\\FormBuilderServiceProvider"
+                    ],
+                    "aliases": {
+                        "FormBuilder": "Kris\\LaravelFormBuilder\\Facades\\FormBuilder"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Kris\\LaravelFormBuilder": "src/"
+                },
+                "classmap": [
+                    "tests/FormBuilderTestCase.php"
+                ],
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kristijan Husak",
+                    "email": "husakkristijan@gmail.com"
+                },
+                {
+                    "name": "Mike Erickson",
+                    "email": "codedungeon@gmail.com"
+                },
+                {
+                    "name": "Mike Erickson",
+                    "email": "mike.erickson@codedungeon.io"
+                }
+            ],
+            "description": "Laravel form builder - symfony like",
+            "keywords": [
+                "builder",
+                "form",
+                "laravel",
+                "symfony"
+            ],
+            "time": "2019-09-04T04:49:11+00:00"
+        },
+        {
             "name": "mockery/mockery",
             "version": "1.2.4",
             "source": {
@@ -3876,6 +3801,73 @@
                 "symfony"
             ],
             "time": "2019-03-07T21:35:13+00:00"
+        },
+        {
+            "name": "patricktalmadge/bootstrapper",
+            "version": "5.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/patricktalmadge/bootstrapper.git",
+                "reference": "899f572143f483879bb75b36f17445d75f6262b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/patricktalmadge/bootstrapper/zipball/899f572143f483879bb75b36f17445d75f6262b8",
+                "reference": "899f572143f483879bb75b36f17445d75f6262b8",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5",
+                "illuminate/routing": "~5",
+                "illuminate/support": "~5",
+                "laravelcollective/html": "^5.4.2",
+                "php": ">=5.6.0",
+                "twbs/bootstrap": "~3"
+            },
+            "require-dev": {
+                "akeneo/phpspec-skip-example-extension": "~1.1",
+                "mockery/mockery": "~0.9",
+                "phpspec/phpspec": "~2",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Bootstrapper\\BootstrapperL5ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Bootstrapper\\": "src\\Bootstrapper",
+                    "DummyClasses\\": "tests\\DummyClasses"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maxime Fabre",
+                    "email": "ehtnam6@gmail.com"
+                },
+                {
+                    "name": "Patrick Talmadge",
+                    "email": "ptalmadge@gmail.com"
+                },
+                {
+                    "name": "Patrick Rose",
+                    "email": "pjr0911025@gmail.com"
+                }
+            ],
+            "description": "Twitter Bootstrap markup generator",
+            "keywords": [
+                "bootstrap",
+                "laravel"
+            ],
+            "time": "2018-07-15T21:56:50+00:00"
         },
         {
             "name": "phar-io/manifest",
@@ -5248,6 +5240,57 @@
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
             "time": "2019-06-13T22:48:21+00:00"
+        },
+        {
+            "name": "twbs/bootstrap",
+            "version": "v3.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/68b0d231a13201eb14acd3dc84e51543d16e5f7e",
+                "reference": "68b0d231a13201eb14acd3dc84e51543d16e5f7e",
+                "shasum": ""
+            },
+            "replace": {
+                "twitter/bootstrap": "self.version"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                },
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                }
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "homepage": "https://getbootstrap.com/",
+            "keywords": [
+                "JS",
+                "css",
+                "framework",
+                "front-end",
+                "less",
+                "mobile-first",
+                "responsive",
+                "web"
+            ],
+            "time": "2019-02-13T15:55:38+00:00"
         },
         {
             "name": "webmozart/assert",

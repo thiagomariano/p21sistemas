@@ -3,30 +3,30 @@
 namespace AllBlacks\Http\Controllers\Admin;
 
 use AllBlacks\Http\Controllers\Controller;
-use AllBlacks\Http\Requests\ClientCreateRequest;
-use AllBlacks\Http\Requests\ClientImportRequest;
 use AllBlacks\Http\Requests\ClientUpdateRequest;
-use AllBlacks\Models\Client;
-use AllBlacks\Repositories\ClientRepository;
+use AllBlacks\Http\Requests\EmailSentCreateRequest;
+use AllBlacks\Http\Requests\EmailSentUpdateRequest;
+use AllBlacks\Repositories\EmailSentRepository;
+use Carbon\Carbon;
 
 /**
  * Class ClientsController.
  *
  * @package namespace AllBlacks\Http\Controllers;
  */
-class ClientController extends Controller
+class EmailSentController extends Controller
 {
     /**
-     * @var ClientRepository
+     * @var EmailSentRepository
      */
     protected $repository;
 
     /**
      * ClientsController constructor.
      *
-     * @param ClientRepository $repository
+     * @param EmailSentRepository $repository
      */
-    public function __construct(ClientRepository $repository)
+    public function __construct(EmailSentRepository $repository)
     {
         $this->middleware('auth');
         $this->repository = $repository;
@@ -39,8 +39,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = $this->repository->paginate();
-        return view('admin.clients.index', compact('clients'));
+        $emails = $this->repository->paginate();
+        return view('admin.emails.index', compact('emails'));
     }
 
     /**
@@ -48,22 +48,27 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('admin.clients.create');
+        return view('admin.emails.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param ClientCreateRequest $request
+     * @param EmailSentCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function store(ClientCreateRequest $request)
+    public function store(EmailSentCreateRequest $request)
     {
-        $this->repository->create($request->all());
-        return redirect()->route('admin.clients.index');
+        $mail = $this->repository->create($request->all());
+
+        if ($request->get('send') == 0) {
+            $this->repository->sendMail($mail->id);
+        }
+
+        return redirect()->route('admin.emails.index');
     }
 
     /**
@@ -75,8 +80,8 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        $client = $this->repository->find($id);
-        return view('admin.clients.edit', compact('client'));
+        $email = $this->repository->find($id);
+        return view('admin.emails.edit', compact('email'));
     }
 
     /**
@@ -89,27 +94,19 @@ class ClientController extends Controller
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(ClientUpdateRequest $request, $id)
+    public function update(EmailSentUpdateRequest $request, $id)
     {
         $this->repository->update($request->all(), $id);
-        return redirect()->route('admin.clients.index');
+        if ($request->get('send') == 0) {
+            $this->repository->sendMail($id);
+        }
+        return redirect()->route('admin.emails.index');
     }
 
-    public function import()
+    public function resendMail($id)
     {
-        $result = null;
-        return view('admin.clients.import', compact('result'));
-    }
-
-    public function importFile(ClientImportRequest $request)
-    {
-        $result = $this->repository->import($request);
-        return view('admin.clients.import', compact('result'));
-    }
-
-    public function sendMailClient($id)
-    {
-        $this->repository->sendMailClient($id);
+        $this->repository->sendMail($id);
+        return redirect()->route('admin.emails.index');
     }
 
     /**
@@ -121,7 +118,7 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        $deleted = $this->repository->delete($id);
-        return redirect()->back()->with('message', 'Client deleted.');
+        $this->repository->delete($id);
+        return redirect()->route('admin.emails.index');
     }
 }

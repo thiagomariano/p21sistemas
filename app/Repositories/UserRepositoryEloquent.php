@@ -2,9 +2,9 @@
 
 namespace AllBlacks\Repositories;
 
+use Illuminate\Support\Facades\Hash;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use AllBlacks\Repositories\UserRepository;
 use AllBlacks\Models\User;
 
 /**
@@ -24,8 +24,6 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
         return User::class;
     }
 
-    
-
     /**
      * Boot up the repository, pushing criteria
      */
@@ -33,5 +31,16 @@ class UserRepositoryEloquent extends BaseRepository implements UserRepository
     {
         $this->pushCriteria(app(RequestCriteria::class));
     }
-    
+
+    public function create($request)
+    {
+        $request['password'] = Hash::make($request['password']);
+        parent::create($request);
+    }
+
+    public function update($request, $id)
+    {
+        $request['password'] = Hash::make($request['password']);
+        parent::update($request, $id);
+    }
 }

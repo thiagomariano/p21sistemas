@@ -68,7 +68,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => AllBlacks\User::class,
+            'model' => AllBlacks\Models\User::class,
         ],
 
         // 'users' => [
