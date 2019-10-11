@@ -30,7 +30,7 @@ Route::group([
     Route::get('emails/send/{id}', 'Admin\EmailSentController@resendMail')->name('emails.send');
 
     Route::resource('employees', 'Admin\EmployeesController', ['except' => ['show','edit']]);
-    Route::get('employees/edit', 'Admin\EmployeesController@edit')->name('emails.edit');
+    Route::get('employees/edit', 'Admin\EmployeesController@edit')->name('employees.edit');
     Route::get('employees/{id}/delete', 'Admin\EmployeesController@destroy')->name('employees.destroy');
 
 });

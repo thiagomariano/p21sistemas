@@ -104,8 +104,8 @@ class EmailSentController extends Controller
 
     public function resendMail($id)
     {
-        $this->repository->delete($id);
-        return redirect()->back()->with('message', 'Client deleted.');
+        $this->repository->sendMail($id);
+        return redirect()->route('admin.emails.index');
     }
 
 }

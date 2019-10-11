@@ -5,8 +5,11 @@
 Primeiro passo após ser clonado, o projeto deve seguir o segundo passo a passo
 
 1 - composer install
+
 2 - criar um arquivo .env com as configurações do banco de dados 
+
 3 - php artisam migrate --seed
+
 4 - php artisan serve
 
 

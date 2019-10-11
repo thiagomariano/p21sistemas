@@ -41,9 +41,6 @@
                                                 <a href="{!! route('admin.emails.edit',['email' => $data->id]) !!}">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
-                                                <a href="{!! route('admin.emails.destroy',['email' => $data->id]) !!}">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach
