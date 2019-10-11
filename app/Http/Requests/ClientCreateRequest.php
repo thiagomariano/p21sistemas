@@ -24,7 +24,14 @@ class ClientCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required'
+            'name' => 'required',
+            'document' => 'required|unique:clients',
+            'postcode' => 'required',
+            'address' => 'required',
+            'district' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'email' => 'unique:clients',
         ];
     }
 }

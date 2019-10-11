@@ -5,11 +5,11 @@ namespace AllBlacks\Repositories;
 use Prettus\Repository\Contracts\RepositoryInterface;
 
 /**
- * Interface ClientRepository.
+ * Interface ImportRepository.
  *
  * @package namespace AllBlacks\Repositories;
  */
-interface ClientRepository extends RepositoryInterface
+interface ImportRepository extends RepositoryInterface
 {
     //
 }

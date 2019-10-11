@@ -54,7 +54,7 @@ class EmployeesController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param EmailSentCreateRequest $request
+     * @param UserCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      *
@@ -63,7 +63,7 @@ class EmployeesController extends Controller
     public function store(UserCreateRequest $request)
     {
         $this->repository->create($request->all());
-        return redirect()->route('admin.emails.index');
+        return redirect()->route('admin.employees.index');
     }
 
     /**
@@ -95,7 +95,6 @@ class EmployeesController extends Controller
         return redirect()->route('admin.employees.index');
     }
 
-
     /**
      * Remove the specified resource from storage.
      *
@@ -106,6 +105,7 @@ class EmployeesController extends Controller
     public function destroy($id)
     {
         $this->repository->delete($id);
-        return redirect()->route('admin.emails.index');
+        return redirect()->back()->with('message', 'Client deleted.');
     }
+
 }

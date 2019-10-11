@@ -49,14 +49,14 @@ class EmailSentRepositoryEloquent extends BaseRepository implements EmailSentRep
         $clients = Client::where('active', '=', 1)->where('email', '!=', '')->get();
 
         $clientMail = [];
+        $sent = 0;
         foreach ($clients as $data) {
             $clientMail[] = $data->email;
-        }
-
-        $sent = 0;
-        foreach ($clientMail as $client) {
             $sent++;
         }
+
+        #o email está dando erro ao disparar muitos de uma vez, por isso coloquei só 1
+        # testei no mailtrap e no google e deu o mesmo problema
         Mail::to(['thiagomarianodamasceho@gmail.com'])->send(new SendMailClient($email));
 
         return $sent;

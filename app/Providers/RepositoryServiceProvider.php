@@ -26,6 +26,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(\AllBlacks\Repositories\UserRepository::class, \AllBlacks\Repositories\UserRepositoryEloquent::class);
         $this->app->bind(\AllBlacks\Repositories\ClientRepository::class, \AllBlacks\Repositories\ClientRepositoryEloquent::class);
         $this->app->bind(\AllBlacks\Repositories\EmailSentRepository::class, \AllBlacks\Repositories\EmailSentRepositoryEloquent::class);
+        $this->app->bind(\AllBlacks\Repositories\ImportRepository::class, \AllBlacks\Repositories\ImportRepositoryEloquent::class);
         //:end-bindings:
     }
 }

@@ -11,12 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'Admin\ClientController@index');
+Route::get('/admin', 'Admin\ClientController@index');
 
 Auth::routes();
 
@@ -24,7 +20,8 @@ Route::group([
     'prefix' => 'admin',
     'as' => 'admin.'], function () {
     Route::resource('clients', 'Admin\ClientController', ['except' => 'show']);
-    Route::get('sendMailClient/{id}', 'Admin\ClientController@sendMailClient')->name('clients.sendMailClient');
+    Route::resource('imports', 'Admin\ImportController', ['except' => 'show']);
+    Route::get('clients/{id}/delete', 'Admin\ClientController@destroy')->name('clients.destroy');
 
     Route::get('clients/import', 'Admin\ClientController@import')->name('clients.imports');
     Route::post('clients/import-file', 'Admin\ClientController@importFile')->name('clients.imports.file');
@@ -34,6 +31,8 @@ Route::group([
 
     Route::resource('employees', 'Admin\EmployeesController', ['except' => ['show','edit']]);
     Route::get('employees/edit', 'Admin\EmployeesController@edit')->name('emails.edit');
+    Route::get('employees/{id}/delete', 'Admin\EmployeesController@destroy')->name('employees.destroy');
+
 });
 
 

@@ -16,26 +16,26 @@
 
     <div class="form-group col-md-6">
         {{ Form::label('Documento', null, ['class' => 'control-label']) }}
-        {{ Form::text('document', null, array_merge(['class' => 'form-control'])) }}
+        {{ Form::text('document', null, array_merge(['class' => 'form-control', 'maxlength'=> '14'])) }}
     </div>
 </div>
 
 <div class="row">
+    <div class="form-group col-md-6">
+        {{ Form::label('Bairro', null, ['class' => 'control-label']) }}
+        {{ Form::text('district', null, array_merge(['class' => 'form-control'])) }}
+    </div>
+
     <div class="form-group col-md-6">
         {{ Form::label('CEP', null, ['class' => 'control-label']) }}
-        {{ Form::text('postcode', null, array_merge(['class' => 'form-control'])) }}
-    </div>
-
-    <div class="form-group col-md-6">
-        {{ Form::label('Endereço', null, ['class' => 'control-label']) }}
-        {{ Form::text('address', null, array_merge(['class' => 'form-control'])) }}
+        {{ Form::text('postcode', null, array_merge(['class' => 'form-control','maxlength'=> '9'])) }}
     </div>
 </div>
 
 <div class="row">
     <div class="form-group col-md-6">
-        {{ Form::label('Distrito', null, ['class' => 'control-label']) }}
-        {{ Form::text('district', null, array_merge(['class' => 'form-control'])) }}
+        {{ Form::label('Estado', null, ['class' => 'control-label']) }}
+        {{ Form::text('state', null, array_merge(['class' => 'form-control','maxlength'=> '2'])) }}
     </div>
 
     <div class="form-group col-md-6">
@@ -46,13 +46,13 @@
 
 <div class="row">
     <div class="form-group col-md-6">
-        {{ Form::label('Estado', null, ['class' => 'control-label']) }}
-        {{ Form::text('state', null, array_merge(['class' => 'form-control'])) }}
+        {{ Form::label('Endereço', null, ['class' => 'control-label']) }}
+        {{ Form::text('address', null, array_merge(['class' => 'form-control'])) }}
     </div>
 
     <div class="form-group col-md-6">
         {{ Form::label('Telefone', null, ['class' => 'control-label']) }}
-        {{ Form::text('telephone', null, array_merge(['class' => 'form-control'])) }}
+        {{ Form::text('telephone', null, array_merge(['class' => 'form-control','maxlength'=> '15'])) }}
     </div>
 </div>
 

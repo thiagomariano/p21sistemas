@@ -131,23 +131,28 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'Clientes',
-            'url'  => 'admin/clients',
+            'url' => 'admin/clients',
             'icon' => 'fas fa-fw fa-users',
         ],
         [
             'text' => 'Emails Enviados',
-            'url'  => 'admin/emails',
+            'url' => 'admin/emails',
             'icon' => 'fas fa-fw fa-envelope',
         ],
         [
-            'text' => 'funcionários',
-            'url'  => 'admin/employees',
+            'text' => 'Importações',
+            'url' => 'admin/imports',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Funcionários',
+            'url' => 'admin/employees',
             'icon' => 'fas fa-fw fa-user',
         ],
         ['header' => 'Meus dados'],
         [
             'text' => 'Alterar informações',
-            'url'  => 'admin/employees/edit',
+            'url' => 'admin/employees/edit',
             'icon' => 'fas fa-fw fa-edit',
         ],
     ],
@@ -189,6 +194,17 @@ return [
     */
 
     'plugins' => [
+        [
+            'name' => '1234',
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '/js/script.js',
+                ],
+            ],
+        ],
         [
             'name' => 'Datatables',
             'active' => true,

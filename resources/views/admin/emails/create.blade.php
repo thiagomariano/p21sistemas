@@ -10,7 +10,9 @@
                 {!! Form::open(['route' => 'admin.emails.store']) !!}
                     @include('admin.emails._form')
                     {!! Form::submit('Salvar', ['class' => 'btn btn-success']); !!}
-                    {!! Form::submit('Cancelar', ['class' => 'btn btn-danger']); !!}
+                <a href="{{ route('admin.emails.index') }}">
+                    <button href="" class="btn btn-danger" type="button"> Cancelar </button>
+                </a>
                 {!! Form::close() !!}
             </div>
 

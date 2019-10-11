@@ -7,7 +7,6 @@ use AllBlacks\Http\Requests\ClientUpdateRequest;
 use AllBlacks\Http\Requests\EmailSentCreateRequest;
 use AllBlacks\Http\Requests\EmailSentUpdateRequest;
 use AllBlacks\Repositories\EmailSentRepository;
-use Carbon\Carbon;
 
 /**
  * Class ClientsController.
@@ -105,20 +104,8 @@ class EmailSentController extends Controller
 
     public function resendMail($id)
     {
-        $this->repository->sendMail($id);
-        return redirect()->route('admin.emails.index');
+        $this->repository->delete($id);
+        return redirect()->back()->with('message', 'Client deleted.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $this->repository->delete($id);
-        return redirect()->route('admin.emails.index');
-    }
 }

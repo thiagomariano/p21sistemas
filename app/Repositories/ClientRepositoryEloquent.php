@@ -2,12 +2,7 @@
 
 namespace AllBlacks\Repositories;
 
-use AllBlacks\Models\EmailSent;
-use AllBlacks\Mail\SendMailClient;
-use App\Exports\ClientsExport;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Storage;
-use Maatwebsite\Excel\Facades\Excel;
+use AllBlacks\Models\Import;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
 use AllBlacks\Models\Client;
@@ -39,20 +34,18 @@ class ClientRepositoryEloquent extends BaseRepository implements ClientRepositor
 
     public function import($request)
     {
-        // If is a XML import
         if (!empty($request->files->get('file'))) {
-
             $clients = simplexml_load_file($request->files->get('file'));
             $clients = json_decode(json_encode((array)$clients), true);
 
             $file = $request->file('file');
-            $file->move(storage_path('client/import'), time() . '.xml');
-
-            $this->export('1570735286.xml');
+            $fileName = time() . '.xml';
+            $file->move(storage_path('client/import'), $fileName);
 
             $created = 0;
             $updated = 0;
             $total = 0;
+
 
             foreach ($clients['torcedor'] as $client) {
 
@@ -79,14 +72,9 @@ class ClientRepositoryEloquent extends BaseRepository implements ClientRepositor
                     $request->validate([
                         'name' => 'required',
                         'document' => 'required',
-                        'postcode' => 'required',
-                        'address' => 'required',
-                        'district' => 'required',
-                        'city' => 'required',
-                        'state' => 'required',
                     ]);
 
-                    $this->firstOrCreate($resource);
+                    $this->update($resource, $data->id);
                     $updated += 1;
                 }
 
@@ -94,11 +82,6 @@ class ClientRepositoryEloquent extends BaseRepository implements ClientRepositor
                     $request->validate([
                         'name' => 'required',
                         'document' => 'required|unique:clients',
-                        'postcode' => 'required',
-                        'address' => 'required',
-                        'district' => 'required',
-                        'city' => 'required',
-                        'state' => 'required'
                     ]);
 
                     $this->create($resource);
@@ -108,7 +91,7 @@ class ClientRepositoryEloquent extends BaseRepository implements ClientRepositor
                 $total++;
             }
 
-            return ['total' => $total, 'updated' => $updated, 'created' => $created];
+            return ['total' => $total, 'updated' => $updated, 'created' => $created, 'file' => $fileName];
 
         }
     }
@@ -118,9 +101,9 @@ class ClientRepositoryEloquent extends BaseRepository implements ClientRepositor
      *
      * @return \Symfony\Component\HttpFoundation\BinaryFileResponse
      */
-    public function export($file)
+    public function export()
     {
-        return Storage::download('1570735506.xml');
+        #return Excel::download(new ClientExport(), 'todos-clientes.xlsx');
     }
 
 }

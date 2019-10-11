@@ -177,6 +177,7 @@ return [
         'year'                  => 'ano',
         'email'                 => 'e-mail',
         'remember'              => 'lembrar-me',
-        'document'             => 'documento',
+        'document'              => 'documento',
+        'district'              => 'estado',
     ],
 ];

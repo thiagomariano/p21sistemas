@@ -15,7 +15,9 @@
                 @include('admin.employees._form')
 
                 {!! Form::submit('Salvar', ['class' => 'btn btn-success']); !!}
-                {!! Form::submit('Cancelar', ['class' => 'btn btn-danger']); !!}
+                <a href="{{ route('admin.employees.index') }}">
+                    <button href="" class="btn btn-danger" type="button"> Cancelar </button>
+                </a>
                 {!! Form::close() !!}
             </div>
 

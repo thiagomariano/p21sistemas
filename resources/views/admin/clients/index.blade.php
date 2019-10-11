@@ -43,13 +43,13 @@
                                             <td class="col-md-2">{{$data->state}}</td>
                                             <td class="col-md-2">{{$data->city}}</td>
                                             <td class="col-md-1">{{$data->telephone}}</td>
-                                            <td class="col-md-1">{{$data->active}}</td>
+                                            <td class="col-md-1">{{$data->active ? 'Não' : 'Sim'}}</td>
                                             <td class="col-md-2 text-center">
                                                 <a href="{!! route('admin.clients.edit',['client' => $data->id]) !!}">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
                                                 <a href="{!! route('admin.clients.destroy',['client' => $data->id]) !!}">
-                                                    <i class="fas fa-trash-alt fa-2x"></i>
+                                                    <i class="fas fa-trash-alt"></i>
                                                 </a>
                                             </td>
                                         </tr>

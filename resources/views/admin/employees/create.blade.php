@@ -8,9 +8,11 @@
         <div class="box box-info">
             <div class="box-body">
                 {!! Form::open(['route' => 'admin.employees.store']) !!}
-                    @include('admin.employees._form')
-                    {!! Form::submit('Salvar', ['class' => 'btn btn-success']); !!}
-                    {!! Form::submit('Cancelar', ['class' => 'btn btn-danger']); !!}
+                @include('admin.employees._form')
+                {!! Form::submit('Salvar', ['class' => 'btn btn-success']); !!}
+                <a href="{{ route('admin.employees.index') }}">
+                    <button href="" class="btn btn-danger" type="button"> Cancelar</button>
+                </a>
                 {!! Form::close() !!}
             </div>
 

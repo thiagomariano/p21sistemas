@@ -6,8 +6,8 @@ use AllBlacks\Http\Controllers\Controller;
 use AllBlacks\Http\Requests\ClientCreateRequest;
 use AllBlacks\Http\Requests\ClientImportRequest;
 use AllBlacks\Http\Requests\ClientUpdateRequest;
-use AllBlacks\Models\Client;
 use AllBlacks\Repositories\ClientRepository;
+use AllBlacks\Repositories\ImportRepository;
 
 /**
  * Class ClientsController.
@@ -20,16 +20,22 @@ class ClientController extends Controller
      * @var ClientRepository
      */
     protected $repository;
+    /**
+     * @var ImportRepository
+     */
+    private $importRepository;
 
     /**
      * ClientsController constructor.
      *
      * @param ClientRepository $repository
+     * @param ImportRepository $importRepository
      */
-    public function __construct(ClientRepository $repository)
+    public function __construct(ClientRepository $repository, ImportRepository $importRepository)
     {
         $this->middleware('auth');
         $this->repository = $repository;
+        $this->importRepository = $importRepository;
     }
 
     /**
@@ -104,6 +110,7 @@ class ClientController extends Controller
     public function importFile(ClientImportRequest $request)
     {
         $result = $this->repository->import($request);
+        $this->importRepository->create($result);
         return view('admin.clients.import', compact('result'));
     }
 
@@ -121,7 +128,7 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        $deleted = $this->repository->delete($id);
+        $this->repository->delete($id);
         return redirect()->back()->with('message', 'Client deleted.');
     }
 }
