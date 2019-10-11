@@ -12,6 +12,10 @@ Primeiro passo após ser clonado, o projeto deve seguir o segundo passo a passo
 
 4 - php artisan serve
 
+5 - http://127.0.0.1:8000/ endereço da aplicação
+
+6 - usuário: admin@admin.com senha: 12345678
+
 
 A solução proposta no projeto foi resolver de forma simples e objetiva o problema de importação dos dados da planilha xml
 por parte da secretária. assim automatizando o processo e gerando menos trabalho e mais produtividade.
